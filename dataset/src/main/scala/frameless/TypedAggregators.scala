@@ -6,7 +6,7 @@ import org.apache.spark.sql.expressions.Aggregator
 
 abstract class TypedAggregator[T, I, B, O](
   implicit val bencoder: TypedEncoder[B],
-  val oencoder: TypedEncoder[O]){
+  val oencoder: TypedEncoder[O]) extends Serializable {
 
   def zero: B
 
